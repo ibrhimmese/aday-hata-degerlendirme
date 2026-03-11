@@ -10,12 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxHits = 5; // Toplam morarma seviyesi (face-0'dan face-5'e kadar)
     let currentHits = 0;
 
-    // Ses efektleri array'i (hata vermemesi için önce catch ekliyoruz)
+    // Ses efektleri array'i (telefonda gecikmeyi önlemek için preload)
     const punchSounds = [
         new Audio('sounds/punch1.mp3'),
         new Audio('sounds/punch2.mp3'),
         new Audio('sounds/punch3.mp3')
     ];
+
+    // Sesleri önden yükle (Telefonda gecikmeyi engeller)
+    punchSounds.forEach(sound => {
+        sound.preload = 'auto';
+        sound.load();
+    });
 
     const musicBtn = document.getElementById('music-btn');
     const bgMusic = document.getElementById('bg-music');
