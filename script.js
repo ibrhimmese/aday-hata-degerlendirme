@@ -13,11 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Ziyaretçi Bildirim Sistemi ---
     // Site açıldığında otomatik olarak ntfy.sh üzerinden sana bildirim gönderir.
     function sendVisitNotification() {
-        // İsteğe bağlı: Cloudflare veya ipify üzerinden IP/Konum alabiliriz
-        fetch('https://ipwho.is/')
+        // Vercel gibi platformlarda konum servisleri (ipwho.is vb.) 403 hatası (Forbidden) verebiliyor.
+        // Bu yüzden güvenilir olan ipify.org üzerinden sadece IP adresini alıyoruz.
+        fetch('https://api.ipify.org?format=json')
             .then(res => res.json())
             .then(data => {
-                const message = `Siten az önce ziyaret edildi!\n\nKonum: ${data.city}, ${data.region}, ${data.country}\nIP: ${data.ip}\nTarayıcı: ${navigator.userAgent.substring(0, 50)}...`;
+                const message = `Siten az önce ziyaret edildi!\n\nIP: ${data.ip}\nTarayıcı: ${navigator.userAgent.substring(0, 50)}...`;
 
                 // Kendi belirleyeceğin benzersiz bir kanal adı (Aşağıdaki kanal adını değiştirmelisin)
                 const channelName = "benimsitem_bilgi_bildirim_9988";
