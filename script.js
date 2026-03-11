@@ -26,10 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch(`https://ntfy.sh/${channelName}`, {
                     method: 'POST',
                     body: message,
-                    headers: {
-                        'Title': '🚨 Yeni Ziyaretçi Var!',
-                        'Tags': 'eyes,rotating_light'
-                    }
+                    mode: 'no-cors' // Tarayıcı veya Vercel'in CORS engelini aşmak için
                 }).catch(err => console.log("Bildirim gönderilemedi."));
             })
             .catch(err => {
@@ -38,11 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch(`https://ntfy.sh/${channelName}`, {
                     method: 'POST',
                     body: "Birisi bağlantıya tıkladı ve siteye girdi! (Konum alınamadı)",
-                    headers: {
-                        'Title': '🚨 Yeni Ziyaretçi Var!',
-                        'Tags': 'eyes'
-                    }
-                });
+                    mode: 'no-cors' // Tarayıcı veya Vercel'in CORS engelini aşmak için
+                }).catch(err => console.log("Hata bildirimi gönderilemedi."));
             });
     }
 
