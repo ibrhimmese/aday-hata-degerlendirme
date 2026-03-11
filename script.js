@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Site açıldığında otomatik olarak ntfy.sh üzerinden sana bildirim gönderir.
     function sendVisitNotification() {
         // İsteğe bağlı: Cloudflare veya ipify üzerinden IP/Konum alabiliriz
-        fetch('https://ipapi.co/json/')
+        fetch('https://ipwho.is/')
             .then(res => res.json())
             .then(data => {
-                const message = `Siten az önce ziyaret edildi!\n\nKonum: ${data.city}, ${data.region}, ${data.country_name}\nIP: ${data.ip}\nTarayıcı: ${navigator.userAgent.substring(0, 50)}...`;
+                const message = `Siten az önce ziyaret edildi!\n\nKonum: ${data.city}, ${data.region}, ${data.country}\nIP: ${data.ip}\nTarayıcı: ${navigator.userAgent.substring(0, 50)}...`;
 
                 // Kendi belirleyeceğin benzersiz bir kanal adı (Aşağıdaki kanal adını değiştirmelisin)
                 const channelName = "benimsitem_bilgi_bildirim_9988";
