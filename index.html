@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Görüşmesi - Performans Değerlendirmesi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Aday Performans İncelemesi</h2>
+            <p>Adayın ne kadar hatalı olduğunu değerlendirmek için fotoğrafa tıklayın.</p>
+        </div>
+
+        <div class="game-area">
+            <!-- Kız arkadaşın boks eldivenli resmi -->
+            <img id="glove" class="glove" src="images/glove.png" alt="Boks Eldiveni">
+
+            <!-- Senin yüzünün resmi (Başlangıç hali) -->
+            <img id="face" class="face" src="images/face-0.jpg" alt="Hedef Yüz">
+
+            <!-- Vuruş efekti -->
+            <div id="hit-effect" class="hit-effect hidden">💥</div>
+        </div>
+
+        <div class="progress">
+            <p>Hasar Durumu: <span id="damage-level">0</span>%</p>
+            <div class="progress-bar">
+                <div id="damage-fill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div id="message-area" class="message-area hidden" style="display: none; opacity: 0;">
+            <h2>Ben bir salağım...</h2>
+            <p>Biliyorum planlara odaklanıp seni ihmal ettim. Ben yapınca sende bu plana dahilsin diye düşündüm ama sana
+                danışmadım aptallık yaptım. Seni dinlemeden ikimiz adına kendimce kararlar aldım planlar yaptım,
+                yurtdışı planları
+                yaptım sana fikrini sormadan ve seni hak etmediğin şekilde asıl odağımı unutup sevgisiz bıraktım.
+                Kendime ve sana zarar verdim yıprattım.
+                Aptallıklarımın ve hatalarımın her saniyesinin her anının farkındayım. Bu psikolojiye sokup asıl ilk
+                öncelik olarak yapmamız gerekeni konuşmak için fırsat vermedim.
+                Gerçekten artık farkındayım tüm farkında olmadıklarımın. Artık netim ve ne yapmam gerektiğinden eminim.
+                Ne kadar kızıp vursan haklısın.</p>
+
+            <div class="music-controls">
+                <button id="music-btn" class="music-btn">
+                    <span class="music-icon">🎵</span> Sesi Oynat
+                </button>
+                <audio id="bg-music" src="sounds/background.mp3" loop></audio>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
